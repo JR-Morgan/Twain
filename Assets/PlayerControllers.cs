@@ -11,34 +11,35 @@ public class PlayerControllers : MonoBehaviour
     private bool lockable = false;
 
     [SerializeField]
-    private float attractionSpeed = 10f;
+    private float attractionForce = 10f;
+
+    [SerializeField]
+    private float pushForce = 20f;
 
 
+    private Vector3 AttractionDirection() => (this.transform.position - partner.transform.position).normalized;
 
     public void FixedUpdate()
     {
         var rb = this.GetComponent<Rigidbody2D>();
 
-        if(lockable && Input.GetKey(KeyCode.Space))
-        {
-            rb.bodyType = RigidbodyType2D.Static;
-        }
-        else rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.bodyType = (lockable && Input.GetKey(KeyCode.Space)) ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
+
+
         if (!lockable || !Input.GetKey(KeyCode.Space))
         {
-
             Vector3 force = Vector3.zero;
 
             if (Input.GetKey(KeyCode.W))
             {
-                force = partner.transform.position - this.transform.position;
+                force = AttractionDirection() * pushForce;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                force = this.transform.position - partner.transform.position;
+                force = AttractionDirection() * attractionForce * -1;
             }
 
-            rb.AddForce(force.normalized * attractionSpeed);
+            rb.AddForce(force);
         }
         
     }

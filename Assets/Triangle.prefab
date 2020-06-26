@@ -157,7 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partner: {fileID: 0}
   lockable: 1
-  attractionSpeed: 10
+  attractionForce: 10
+  pushForce: 10
 --- !u!50 &9113433966491532068
 Rigidbody2D:
   serializedVersion: 4
