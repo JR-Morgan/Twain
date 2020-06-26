@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlayerControllers : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private GameObject partner;
+
+    [SerializeField]
+    private float attractionSpeed = 10f;
+
+
+    public void FixedUpdate()
     {
-        
+        var rb = this.GetComponent<Rigidbody2D>();
+        Vector3 force = Vector3.zero;
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            force = partner.transform.position - this.transform.position;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            force = this.transform.position - partner.transform.position;
+        }
+
+        rb.AddForce(force.normalized * attractionSpeed);
     }
 }
