@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.Video;
@@ -13,7 +14,13 @@ public class PlayerControllers : MonoBehaviour
     private bool lockable = false;
 
     [SerializeField]
+    private bool rotateable = true;
+
+    [SerializeField]
     private float attractionForce = 10f;
+
+    [SerializeField]
+    private float rotationForce = 7f;
 
     [SerializeField]
     private float pushForce = 20f;
@@ -68,14 +75,25 @@ public class PlayerControllers : MonoBehaviour
             var rb = this.GetComponent<Rigidbody2D>();
             Vector3 force = Vector3.zero;
 
-            if (Input.GetKey(KeyCode.W))
-            {
-                force = AttractionDirection() * pushForce;
-            }
             if (Input.GetKey(KeyCode.S))
             {
-                force = AttractionDirection() * attractionForce * -1;
+                force += AttractionDirection() * pushForce;
             }
+            if (Input.GetKey(KeyCode.W))
+            {
+                force += AttractionDirection() * attractionForce * -1;
+            }
+            if(rotateable)
+            {
+                if (Input.GetKey(KeyCode.A))
+                {
+                    force += Quaternion.AngleAxis(-135, Vector3.forward) * AttractionDirection() * rotationForce;
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    force += Quaternion.AngleAxis(135, Vector3.forward) * AttractionDirection() * rotationForce;
+                }
+            }    
 
             rb.AddForce(force);
         }
