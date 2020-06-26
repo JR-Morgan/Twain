@@ -26,10 +26,17 @@ public class PlayerControllers : MonoBehaviour
 
     private bool isColliding = false;
 
+    [SerializeField]
+    private KeyCode lockedKey;
 
     public void Start()
     {
         SetColor();
+    }
+
+    public void LateUpdate()
+    {
+        
     }
 
 
@@ -53,11 +60,9 @@ public class PlayerControllers : MonoBehaviour
 
     public void FixedUpdate()
     {
-        LockMovement(lockable && gameObject.name == "Triangle1" && Input.GetKey(KeyCode.Space) && isColliding);
+        LockMovement(lockable && Input.GetKey(lockedKey) && isColliding);
 
-        LockMovement(lockable && gameObject.name == "Triangle2" && Input.GetKey(KeyCode.LeftShift) && isColliding);
 
-        
         //if (!lockable || !Input.GetKey(KeyCode.Space))
         {
             var rb = this.GetComponent<Rigidbody2D>();
@@ -74,7 +79,7 @@ public class PlayerControllers : MonoBehaviour
 
             rb.AddForce(force);
         }
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -83,9 +88,22 @@ public class PlayerControllers : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Do something here");
+            Debug.Log("is colliding true");
             isColliding = true;
         }
 
+
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            //If the GameObject's name matches the one you suggest, output this message in the console
+            Debug.Log("is colliding flase");
+            if (!isLocked)
+            {
+                isColliding = false;
+            }
+        }
     }
 }
