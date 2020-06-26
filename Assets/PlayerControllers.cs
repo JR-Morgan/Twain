@@ -19,8 +19,14 @@ public class PlayerControllers : MonoBehaviour
     {
         var rb = this.GetComponent<Rigidbody2D>();
 
+        if(lockable && Input.GetKey(KeyCode.Space))
+        {
+            rb.bodyType = RigidbodyType2D.Static;
+        }
+        else rb.bodyType = RigidbodyType2D.Dynamic;
         if (!lockable || !Input.GetKey(KeyCode.Space))
         {
+
             Vector3 force = Vector3.zero;
 
             if (Input.GetKey(KeyCode.W))
