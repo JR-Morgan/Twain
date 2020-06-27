@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
@@ -12,16 +11,28 @@ public class CameraController : MonoBehaviour
     private Transform triangle2;
 
     [SerializeField]
+    private bool fixedRotation;
+
+
+    [SerializeField]
     [Range(0,1)]
     private float smoothAmount;
 
     private void Update()
     {
-        Vector3 diff = (triangle1.transform.position - this.transform.position).normalized;
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            fixedRotation = !fixedRotation;
+        }
 
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        if(!fixedRotation)
+        {
+            Vector3 diff = (triangle1.transform.position - this.transform.position).normalized;
 
+            float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        }
+        
     }
 
     private void LateUpdate()

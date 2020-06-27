@@ -11,9 +11,9 @@ public class RegionController : MonoBehaviour
 
     private static readonly Dictionary<Colour, Color> colorMap = new Dictionary<Colour, Color>
     {
-        { Colour.White, new Color(0.678f, 0.745f, 0.819f) },
-        { Colour.Green, new Color(0.678f, 0.819f, 0.745f) },
-        { Colour.Pink, new Color(0.819f, 0.678f, 0.811f) }
+        { Colour.White, new Color(0.678f, 0.745f, 0.819f, 0.7f) },
+        { Colour.Green, new Color(0.678f, 0.819f, 0.745f, 0.7f) },
+        { Colour.Pink, new Color(0.819f, 0.678f, 0.811f, 0.7f) }
     };
 
 
