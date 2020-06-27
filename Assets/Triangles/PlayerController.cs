@@ -46,11 +46,11 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetAxis("Horizontal") > 0)
             {
-                force += Quaternion.AngleAxis(-135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * Input.GetAxis("Horizontal");
+                force += Quaternion.AngleAxis(-90, Vector3.forward) * AttractionDirection * rotationForceMultiplier * Input.GetAxis("Horizontal");
             }
             if (Input.GetAxis("Horizontal") < 0)
             {
-                force += Quaternion.AngleAxis(135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * -Input.GetAxis("Horizontal");
+                force += Quaternion.AngleAxis(90, Vector3.forward) * AttractionDirection * rotationForceMultiplier * -Input.GetAxis("Horizontal");
             }
         }
 
