@@ -41,11 +41,6 @@ public class PlayerControllers : MonoBehaviour
         SetColor();
     }
 
-    public void LateUpdate()
-    {
-        
-    }
-
 
     private void SetColor()
     {
@@ -106,7 +101,7 @@ public class PlayerControllers : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("is colliding true");
+            //Debug.Log("is colliding true");
             isColliding = true;
         }
 
@@ -117,7 +112,7 @@ public class PlayerControllers : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("is colliding flase");
+            //Debug.Log("is colliding flase");
             if (!isLocked)
             {
                 isColliding = false;
