@@ -32,7 +32,7 @@ public class LockingController : MonoBehaviour
     },
     colorLocked = new Dictionary<Colour, Color>
     {
-        { Colour.Green, new Color(0.19f,0.7f,0.14f) },
+        { Colour.Green, new Color(0.05f,0.38f,0.25f) },
         { Colour.Pink, new Color(0.53f,0.24f,0.71f) }
     };
 
@@ -96,10 +96,10 @@ public class LockingController : MonoBehaviour
 
     }
 
-    public void OnRegionExit(Colour colour)
+    public void OnRegionExit(Colour regionColour)
     {
-        if ((colour == this.colour
-            || colour == Colour.White)
+        if ((regionColour == this.colour
+            || regionColour == Colour.White)
             && !isLocked)
         {
             isLockable = false;
