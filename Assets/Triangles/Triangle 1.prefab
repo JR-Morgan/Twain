@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2211830078771832117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7152010818645578887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366d39161934df64489b6f685d6f22aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockableLayer: 0
+  foo: 1
+  colorNonLockable: {r: 0.9686275, g: 0.6039216, b: 0.82745105, a: 0}
+  colorLockable: {r: 0.8867924, g: 0.34718758, b: 0.6779133, a: 0}
+  colorLocked: {r: 0.6603774, g: 0.046724807, b: 0.42283466, a: 0}
+  lockedKey: 0
 --- !u!1001 &2105538490642608034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,3 +139,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+--- !u!1 &7152010818645578887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9113433966491532069, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+  m_PrefabInstance: {fileID: 2105538490642608034}
+  m_PrefabAsset: {fileID: 0}

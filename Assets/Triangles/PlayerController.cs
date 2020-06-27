@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UIElements;
 using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
@@ -14,11 +15,6 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
 
     [SerializeField]
-    private int lockableLayer;
-
-    private float ForceCalculation(float forceMultipler) => forceMultipler;
-
-    [SerializeField]
     private bool rotateable = true;
 
     [SerializeField]
@@ -27,114 +23,38 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    #region Visual
-    [Header("Visual")]
-    [SerializeField]
-    [Range(0f, 2f)]
-    private float particalScale = 1f;
-
-    [SerializeField]
-    private Color colorNonLockable, colorLockable, colorLocked;
-    #endregion
-
-    #region Controlls
-
-    [Header("Controlls")]
-    [SerializeField]
-    private KeyCode lockedKey;
-
-    #endregion
-
-    private bool isLockable;
-
-    private bool isLocked;
-
-
-    private void SetColor()
-    {
-        Color color;
-        if (isLocked)
-        {
-            color = colorLocked;
-        }
-        else if (isLockable)
-        {
-            color = colorLockable;
-        }
-        else
-        {
-            color = colorNonLockable;
-        }
-
-        var spriteShape = this.GetComponent<SpriteShapeRenderer>();
-        spriteShape.color = color;
-    }
 
     private Vector3 AttractionDirection => (this.transform.position - partner.transform.position).normalized;
 
     private float TargetDistance => Vector3.Distance(this.transform.position, partner.transform.position);
 
-    private void LockMovement(bool isLocked = true)
-    {
-        this.isLocked = isLocked;
-
-        var rb = this.GetComponent<Rigidbody2D>();
-        rb.bodyType = isLocked ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
-        SetColor();
-    }
-
 
     public void FixedUpdate()
     {
+        var rb = this.GetComponent<Rigidbody2D>();
+        Vector3 force = Vector3.zero;
 
-        LockMovement(isLockable && Input.GetKey(lockedKey));
-
-        if (!isLocked)
+        if (Input.GetAxis("Vertical") < 0)
         {
-            var rb = this.GetComponent<Rigidbody2D>();
-            Vector3 force = Vector3.zero;
-
-            if (Input.GetAxis("Vertical") < 0)
+            force += AttractionDirection * Input.GetAxis("Vertical") * pushForceMultiplier;
+        }
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            force += (AttractionDirection * Input.GetAxis("Vertical") * pullForceMultiplier);
+        }
+        if (rotateable)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
             {
-                Debug.Log("Negative");
-                force += AttractionDirection * Input.GetAxis("Vertical") * pushForceMultiplier * -1;
+                force += Quaternion.AngleAxis(-135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * Input.GetAxis("Horizontal");
             }
-            if (Input.GetAxis("Vertical") > 0)
+            if (Input.GetAxis("Horizontal") < 0)
             {
-                force += (AttractionDirection * Input.GetAxis("Vertical") * pullForceMultiplier * -1);
+                force += Quaternion.AngleAxis(135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * -Input.GetAxis("Horizontal");
             }
-            if (rotateable)
-            {
-                if (Input.GetAxis("Horizontal") > 0)
-                {
-                    force += Quaternion.AngleAxis(135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * Input.GetAxis("Horizontal");
-                }
-                if (Input.GetAxis("Horizontal") < 0)
-                {
-                    force += Quaternion.AngleAxis(-135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * -Input.GetAxis("Horizontal");
-                }
-            }
-
-            rb.AddForce(force);
         }
 
-    }
+        rb.AddForce(force);
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == lockableLayer)
-        {
-            isLockable = true;
-        }
-
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == lockableLayer
-            && !isLocked)
-        {
-            isLockable = false;
-        }
     }
 }

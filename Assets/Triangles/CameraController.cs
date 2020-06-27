@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
 
 
         Vector3 midPoint = Vector3.Lerp(triangle1.transform.position, triangle2.transform.position, 0.5f);
-        transform.position = Vector3.Lerp(transform.position, new Vector3(midPoint.x, midPoint.y, -20), smoothAmount * 100 * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(midPoint.x, midPoint.y, -20), smoothAmount * 10 * Time.deltaTime);
         
 
     }
