@@ -211,4 +211,4 @@ MonoBehaviour:
   rotateable: 1
   pushForceMultiplier: 12
   pullForceMultiplier: 7
-  rotationForceMultiplier: 5
+  rotationForceMultiplier: 2
