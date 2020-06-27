@@ -321,7 +321,8 @@ MonoBehaviour:
   triangle1: {fileID: 1372267197}
   triangle2: {fileID: 1593830832}
   fixedRotation: 0
-  smoothAmount: 0.15
+  translationSmoothing: 0.1
+  rotationSmoothing: 0.1
 --- !u!81 &123626853
 AudioListener:
   m_ObjectHideFlags: 0

@@ -16,12 +16,13 @@ public class CameraController : MonoBehaviour
 
     [SerializeField]
     [Range(0,1)]
-    private float smoothAmount;
+    private float translationSmoothing, rotationSmoothing;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             fixedRotation = !fixedRotation;
         }
 
@@ -30,7 +31,7 @@ public class CameraController : MonoBehaviour
             Vector3 diff = (triangle1.transform.position - this.transform.position).normalized;
 
             float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, rot_z - 90), rotationSmoothing);
         }
         
     }
@@ -39,7 +40,7 @@ public class CameraController : MonoBehaviour
     {
 
         Vector3 midPoint = Vector3.Lerp(triangle1.transform.position, triangle2.transform.position, 0.5f);
-        transform.position = Vector3.Lerp(transform.position, new Vector3(midPoint.x, midPoint.y, -20), smoothAmount * 10 * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(midPoint.x, midPoint.y, -20), translationSmoothing * 10 * Time.deltaTime);
         
 
     }
