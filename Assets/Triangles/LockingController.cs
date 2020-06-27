@@ -34,6 +34,11 @@ public class LockingController : MonoBehaviour
     {
         { Colour.Green, new Color(0.05f,0.38f,0.25f) },
         { Colour.Pink, new Color(0.53f,0.24f,0.71f) }
+    },
+    colorWaitingToLock = new Dictionary<Colour, Color>
+    {
+        {Colour.Green, new Color(1f,1f,1f) },
+        {Colour.Pink, new Color(1f,1f,1f) }
     };
 
     #endregion
@@ -43,6 +48,8 @@ public class LockingController : MonoBehaviour
     [Header("Controlls")]
     [SerializeField]
     private KeyCode lockedKey;
+    [SerializeField]
+    private bool lockBool;
 
     #endregion
 
@@ -62,6 +69,10 @@ public class LockingController : MonoBehaviour
         {
             color = colorLockable[colour];
         }
+        else if (lockBool)
+        {
+            color = colorWaitingToLock[colour];
+        }
         else
         {
             color = colorNonLockable[colour];
@@ -80,14 +91,18 @@ public class LockingController : MonoBehaviour
         SetColor();
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
-        LockMovement(isLockable && Input.GetKey(lockedKey));
+        if (Input.GetKeyDown(lockedKey))
+        {
+            lockBool = !lockBool;
+        }
+        LockMovement(isLockable && lockBool);
     }
 
     public void OnRegionEnter(Colour colour)
     {
-        
+
         if (colour == this.colour
            || colour == Colour.White)
         {

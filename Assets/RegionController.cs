@@ -26,7 +26,7 @@ public class RegionController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Triangle"))
         {
-            collision.gameObject.GetComponent<LockingController2>().OnRegionEnter(colour);
+            collision.gameObject.GetComponent<LockingController>().OnRegionEnter(colour);
         }
     }
 
@@ -34,7 +34,7 @@ public class RegionController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Triangle"))
         {
-            collision.gameObject.GetComponent<LockingController2>().OnRegionExit(colour);
+            collision.gameObject.GetComponent<LockingController>().OnRegionExit(colour);
         }
     }
 }
