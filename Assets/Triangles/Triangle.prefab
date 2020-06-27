@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7861521924439523118}
   m_Layer: 0
   m_Name: Triangle
-  m_TagString: Untagged
+  m_TagString: Triangle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -156,12 +156,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partner: {fileID: 0}
-  lockable: 1
+  lockableLayer: 0
   rotateable: 1
-  attractionForce: 10
-  rotationForce: 7
-  pushForce: 10
-  lockedKey: 0
+  attractionForce: 7
+  rotationForce: 5
+  pushForce: 12
+  particalScale: 1
+  colorNonLockable: {r: 0.15, g: 0.75, b: 0.5, a: 1}
+  colorLockable: {r: 0.75, g: 0.15, b: 0.5, a: 1}
+  colorLocked: {r: 0.75, g: 0.15, b: 0.15, a: 1}
+  lockedKey: 304
 --- !u!50 &9113433966491532068
 Rigidbody2D:
   serializedVersion: 4
@@ -175,8 +179,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.25
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

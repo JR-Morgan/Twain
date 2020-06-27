@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     private GameObject target;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //Vector3 eulerRotation = transform.rotation.eulerAngles;
         //transform.rotation = Quaternion.Euler(
