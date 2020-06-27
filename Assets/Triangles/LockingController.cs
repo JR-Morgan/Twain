@@ -22,18 +22,18 @@ public class LockingController : MonoBehaviour
 
     private static readonly Dictionary<Colour, Color> colorNonLockable = new Dictionary<Colour, Color>
     {
-        { Colour.Green, new Color(0.713f, 0.956f, 0.043f) },
-        { Colour.Pink, new Color(0.474f, 0.678f, 0.011f) }
+        { Colour.Green, new Color(0.38f,0.7f,0.07f) },
+        { Colour.Pink, new Color(0.71f,0.24f,0.47f) }
     },
     colorLockable = new Dictionary<Colour, Color>
     {
-        { Colour.Green, new Color(0.462f, 0.015f, 0.031f) },
-        { Colour.Pink, new Color(0.145f, 0.603f, 0.050f) }
+        { Colour.Green, new Color(0.19f,0.7f,0.14f) },
+        { Colour.Pink, new Color(0.61f,0.07f,0.44f) }
     },
     colorLocked = new Dictionary<Colour, Color>
     {
-        { Colour.Green, new Color(0.207f, 0.078f, 0.019f) },
-        { Colour.Pink, new Color(0.501f, 0.776f, 0.047f) }
+        { Colour.Green, new Color(0.19f,0.7f,0.14f) },
+        { Colour.Pink, new Color(0.53f,0.24f,0.71f) }
     };
 
     #endregion
