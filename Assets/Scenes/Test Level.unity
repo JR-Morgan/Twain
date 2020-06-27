@@ -1128,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735688246667365237, guid: 2dc7b1f3a9c203045bcd2577714ed029, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5735688246667365237, guid: 2dc7b1f3a9c203045bcd2577714ed029, type: 3}
       propertyPath: m_ShapeTexture
@@ -1835,7 +1835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6693568050639895947, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: lockedKey
-      value: 304
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693568050639895947, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
+      propertyPath: lockBool
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9057350328457090306, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: m_ShapeTexture
@@ -1843,15 +1847,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9057350328457090306, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: m_Color.r
-      value: 0.38
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9057350328457090306, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: m_Color.g
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9057350328457090306, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: m_Color.b
-      value: 0.07
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9057350328457090307, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1904,6 +1908,10 @@ PrefabInstance:
     - target: {fileID: 9057350328457090316, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: rotateable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057350328457090316, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
+      propertyPath: rotationForceMultiplier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9057350328457090318, guid: 1b1a38f857040de44baf12f128789ae8, type: 3}
       propertyPath: m_Name
@@ -2751,7 +2759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735688246667365237, guid: 2dc7b1f3a9c203045bcd2577714ed029, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5735688246667365237, guid: 2dc7b1f3a9c203045bcd2577714ed029, type: 3}
       propertyPath: m_ShapeTexture
@@ -3482,6 +3490,10 @@ PrefabInstance:
     - target: {fileID: 7152010818645578885, guid: 2d20ab9fef8e3df4e9612cb03f00eca4, type: 3}
       propertyPath: lockableLayer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7152010818645578885, guid: 2d20ab9fef8e3df4e9612cb03f00eca4, type: 3}
+      propertyPath: rotationForceMultiplier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7152010818645578887, guid: 2d20ab9fef8e3df4e9612cb03f00eca4, type: 3}
       propertyPath: m_Name
@@ -4564,7 +4576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735688246667365237, guid: 2dc7b1f3a9c203045bcd2577714ed029, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5735688246667365237, guid: 2dc7b1f3a9c203045bcd2577714ed029, type: 3}
       propertyPath: m_ShapeTexture
