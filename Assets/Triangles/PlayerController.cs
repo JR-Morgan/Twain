@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.Video;
 
-public class PlayerControllers : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private GameObject partner;
@@ -16,21 +16,14 @@ public class PlayerControllers : MonoBehaviour
     [SerializeField]
     private int lockableLayer;
 
-    private float ForceCalculation(float forceMultipler, float distance, float range) => forceMultipler;
+    private float ForceCalculation(float forceMultipler) => forceMultipler;
 
     [SerializeField]
     private bool rotateable = true;
 
     [SerializeField]
     [Range(0f, 25f)]
-    private float pushForceMultiplier = 12f, pullForceMultipler = 7f, rotationForceMultiplier = 5f;
-    [Range(0f, 10f)]
-    [SerializeField]
-    private float pushRange = 2f, pullRange = 2f, rotationRange = 2f;
-    private float PushForce => ForceCalculation(pushForceMultiplier, TargetDistance, pushRange);
-    private float PullForce => ForceCalculation(pullForceMultipler, TargetDistance, pullRange);
-
-    private float RotationForce => ForceCalculation(rotationForceMultiplier, TargetDistance, rotationRange);
+    private float pushForceMultiplier = 12f, pullForceMultiplier = 7f, rotationForceMultiplier = 5f;
 
     #endregion
 
@@ -60,11 +53,11 @@ public class PlayerControllers : MonoBehaviour
     private void SetColor()
     {
         Color color;
-        if(isLocked)
+        if (isLocked)
         {
             color = colorLocked;
         }
-        else if(isLockable)
+        else if (isLockable)
         {
             color = colorLockable;
         }
@@ -96,7 +89,7 @@ public class PlayerControllers : MonoBehaviour
 
         LockMovement(isLockable && Input.GetKey(lockedKey));
 
-        if(!isLocked)
+        if (!isLocked)
         {
             var rb = this.GetComponent<Rigidbody2D>();
             Vector3 force = Vector3.zero;
@@ -104,16 +97,23 @@ public class PlayerControllers : MonoBehaviour
             if (Input.GetAxis("Vertical") < 0)
             {
                 Debug.Log("Negative");
-                force += AttractionDirection * Input.GetAxis("Vertical") * PushForce * -1 ;
+                force += AttractionDirection * Input.GetAxis("Vertical") * pushForceMultiplier * -1;
             }
             if (Input.GetAxis("Vertical") > 0)
             {
-                force += (AttractionDirection * Input.GetAxis("Vertical")  * PullForce * -1);
+                force += (AttractionDirection * Input.GetAxis("Vertical") * pullForceMultiplier * -1);
             }
-            if(rotateable)
+            if (rotateable)
             {
-                force += Quaternion.AngleAxis(135, Vector3.forward) * AttractionDirection * RotationForce * Input.GetAxis("Horizontal");
-            }    
+                if (Input.GetAxis("Horizontal") > 0)
+                {
+                    force += Quaternion.AngleAxis(135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * Input.GetAxis("Horizontal");
+                }
+                if (Input.GetAxis("Horizontal") < 0)
+                {
+                    force += Quaternion.AngleAxis(-135, Vector3.forward) * AttractionDirection * rotationForceMultiplier * -Input.GetAxis("Horizontal");
+                }
+            }
 
             rb.AddForce(force);
         }

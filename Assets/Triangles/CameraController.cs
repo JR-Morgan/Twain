@@ -6,21 +6,26 @@ public class CameraController : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject target;
+    private Transform triangle1;
+    [SerializeField]
+    private Transform triangle2;
 
-    // Update is called once per frame
-    private void Update()
+    [SerializeField]
+    [Range(0,1)]
+    private float smoothAmount;
+
+    private void LateUpdate()
     {
-        //Vector3 eulerRotation = transform.rotation.eulerAngles;
-        //transform.rotation = Quaternion.Euler(
-        //    eulerRotation.x,
-        //    eulerRotation.y,
-        //    Vector3.Angle((this.transform.position - target.transform.position).normalized, Vector3.up));
 
-        Vector3 diff = (target.transform.position - this.transform.position).normalized;
+        Vector3 diff = (triangle1.transform.position - this.transform.position).normalized;
 
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+
+
+        Vector3 midPoint = Vector3.Lerp(triangle1.transform.position, triangle2.transform.position, 0.5f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(midPoint.x, midPoint.y, -20), smoothAmount * 100 * Time.deltaTime);
+        
 
     }
 }
