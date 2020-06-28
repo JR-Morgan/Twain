@@ -29,7 +29,7 @@ public class Parallaxing : MonoBehaviour
 
         for (int i = 0; i < backgrounds.Length; i++)
         {
-            parallaxMovementScale[i] = backgrounds[i].position.z*-1;
+            parallaxMovementScale[i] = backgrounds[i].position.z;
         }
     }
 
