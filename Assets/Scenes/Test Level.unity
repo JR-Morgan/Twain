@@ -1059,7 +1059,7 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 1763981288}
   - {fileID: 1162987655}
-  smoothing: 5
+  smoothing: 1
   cam: {fileID: 123626851}
 --- !u!4 &1950444087
 Transform:
