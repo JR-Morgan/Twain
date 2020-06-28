@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject partner;
 
+    [SerializeField]
+    private Transform eye;
+
     #region Movement
     [Header("Movement")]
 
