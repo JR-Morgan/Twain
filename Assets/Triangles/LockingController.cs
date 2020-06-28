@@ -8,7 +8,8 @@ public class LockingController : MonoBehaviour
     [SerializeField]
     private Colour colour;
 
-    private bool isLockable;
+    private int lockableZones = 0;
+    private bool IsLockable => lockableZones > 0;
 
     private bool isLocked;
 
@@ -65,7 +66,7 @@ public class LockingController : MonoBehaviour
         {
             color = colorLocked[colour];
         }
-        else if (isLockable)
+        else if (IsLockable)
         {
             color = colorLockable[colour];
         }
@@ -97,7 +98,7 @@ public class LockingController : MonoBehaviour
         {
             lockBool = !lockBool;
         }
-        LockMovement(isLockable && lockBool);
+        LockMovement(IsLockable && lockBool);
     }
 
     public void OnRegionEnter(Colour colour)
@@ -106,7 +107,7 @@ public class LockingController : MonoBehaviour
         if (colour == this.colour
            || colour == Colour.White)
         {
-            isLockable = true;
+            lockableZones = 1;
         }
 
     }
@@ -115,9 +116,11 @@ public class LockingController : MonoBehaviour
     {
         if ((regionColour == this.colour
             || regionColour == Colour.White)
-            && !isLocked)
+            && !isLocked
+            && lockableZones > 0
+            )
         {
-            isLockable = false;
+            lockableZones = 0;
         }
     }
 }
