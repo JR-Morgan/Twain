@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366d39161934df64489b6f685d6f22aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: 0
+  colour: 2
   foo: 1
   lockedKey: 0
   lockBool: 0
@@ -50,6 +50,14 @@ PrefabInstance:
     - target: {fileID: 6755958167803415812, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_PointLightOuterRadius
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113433966491532068, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113433966491532068, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532069, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Name
@@ -153,15 +161,15 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: e4c9918cb2ff93346baca66c7222b73e, type: 3}
     - target: {fileID: 9113433966491532073, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.r
-      value: 0.96862745
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532073, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.g
-      value: 0.6039216
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532073, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.b
-      value: 0.827451
+      value: 0.47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}

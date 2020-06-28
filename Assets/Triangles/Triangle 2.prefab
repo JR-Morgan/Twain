@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!232 &6428713466388894550
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9057350328457090318}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 2.3}
+  m_ConnectedAnchor: {x: 0, y: 2.3}
+  m_AutoConfigureDistance: 1
+  m_Distance: 1.7249999
+  m_MaxDistanceOnly: 0
 --- !u!114 &6693568050639895947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +31,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366d39161934df64489b6f685d6f22aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: 0
+  colour: 1
   foo: 1
   lockedKey: 0
-  lockBool: 0
+  lockBool: 1
 --- !u!1001 &273391137799482923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,15 +56,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755958167803415812, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.r
-      value: 0.35686275
+      value: 0.61373043
       objectReference: {fileID: 0}
     - target: {fileID: 6755958167803415812, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.g
-      value: 0.43529415
+      value: 0.7924528
       objectReference: {fileID: 0}
     - target: {fileID: 6755958167803415812, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.b
-      value: 0.29411766
+      value: 0.47472408
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532069, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Name
@@ -101,7 +120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532071, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: rotateable
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113433966491532071, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+      propertyPath: rotationForceMultiplier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532072, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -153,15 +176,15 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: e4c9918cb2ff93346baca66c7222b73e, type: 3}
     - target: {fileID: 9113433966491532073, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.r
-      value: 0.35686275
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532073, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.g
-      value: 0.43529415
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532073, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Color.b
-      value: 0.29411766
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
