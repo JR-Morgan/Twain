@@ -12,6 +12,10 @@ public class InputGraphicsController : MonoBehaviour
     private Color gray = Color.gray;
     [SerializeField]
     private Color white = Color.white;
+    [SerializeField]
+    private Color pink = Color.magenta;
+    [SerializeField]
+    private Color green = Color.green;
 
     private void Update()
     {
@@ -27,7 +31,7 @@ public class InputGraphicsController : MonoBehaviour
             spaceToggle = !spaceToggle;
 
 
-        space.color = spaceToggle ? gray : white;
+        space.color = spaceToggle ? pink : green;
 
 
         if (Input.GetKeyUp(KeyCode.W))
