@@ -18,32 +18,27 @@ public class InputGraphicsController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
             w.color = gray;
         if (Input.GetKeyDown(KeyCode.S))
-            a.color = gray;
-        if (Input.GetKeyDown(KeyCode.A))
             s.color = gray;
-        if (Input.GetKeyDown(KeyCode.D))
-            d.color = gray;
+        if (Input.GetKeyDown(KeyCode.A))
+            a.color = gray;
         if (Input.GetKeyDown(KeyCode.D))
             d.color = gray;
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             spaceToggle = !spaceToggle;
-        }
-        if (spaceToggle)
-            space.color = gray;
+
+
+        space.color = spaceToggle ? gray : white;
 
 
         if (Input.GetKeyUp(KeyCode.W))
             w.color = white;
         if (Input.GetKeyUp(KeyCode.S))
-            a.color = white;
-        if (Input.GetKeyUp(KeyCode.A))
             s.color = white;
+        if (Input.GetKeyUp(KeyCode.A))
+            a.color = white;
         if (Input.GetKeyUp(KeyCode.D))
             d.color = white;
-        if (Input.GetKeyUp(KeyCode.D))
-            d.color = white;
-        if (Input.GetKeyUp(KeyCode.Space))
-            space.color = white;
+        //if (Input.GetKeyUp(KeyCode.Space))
+           //space.color = white;
     }
 }
