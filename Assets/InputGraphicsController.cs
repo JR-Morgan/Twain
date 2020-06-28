@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class InputGraphicsController : MonoBehaviour
 {
+    private bool spaceToggle = false;
     [SerializeField]
     private Image w, s, a, d, space;
-
+    [SerializeField]
     private Color gray = Color.gray;
+    [SerializeField]
     private Color white = Color.white;
 
     private void Update()
@@ -24,6 +26,10 @@ public class InputGraphicsController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
             d.color = gray;
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            spaceToggle = !spaceToggle;
+        }
+        if (spaceToggle)
             space.color = gray;
 
 
