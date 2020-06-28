@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 3433520}
   - component: {fileID: 3433519}
   m_Layer: 5
-  m_Name: ButtonStart (1)
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5695875}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
