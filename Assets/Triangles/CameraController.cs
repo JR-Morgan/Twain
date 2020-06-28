@@ -18,6 +18,11 @@ public class CameraController : MonoBehaviour
     [Range(0,1)]
     private float translationSmoothing, rotationSmoothing;
 
+    private void Start()
+    {
+        transform.position = SpawnPointManager.LastCheckPointPosition;
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))

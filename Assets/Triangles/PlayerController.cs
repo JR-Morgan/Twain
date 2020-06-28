@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
     private float TargetDistance => Vector3.Distance(this.transform.position, partner.transform.position);
 
 
+    private void Start()
+    {
+        transform.position = SpawnPointManager.LastCheckPointPosition;
+    }
+
     public void FixedUpdate()
     {
         var rb = this.GetComponent<Rigidbody2D>();

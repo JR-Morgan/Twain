@@ -12,7 +12,7 @@ public class SpikeController : MonoBehaviour
         {
             Debug.Log($"Spike Object {this.gameObject.name} was touched by a triangle: restartin scene");
             //TODO animation delay
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }

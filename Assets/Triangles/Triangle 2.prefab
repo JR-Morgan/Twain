@@ -35,6 +35,18 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.29411766
       objectReference: {fileID: 0}
+    - target: {fileID: 6755958167803415812, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+      propertyPath: m_Color.r
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755958167803415812, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+      propertyPath: m_Color.g
+      value: 0.43529415
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755958167803415812, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
     - target: {fileID: 9113433966491532069, guid: 13c2ce0854ca5f5438d06fd03a0f3e73, type: 3}
       propertyPath: m_Name
       value: Triangle 2
